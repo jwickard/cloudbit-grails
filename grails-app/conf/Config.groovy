@@ -119,3 +119,41 @@ log4j = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 }
+
+def baseURL = grails.serverURL ?: "http://localhost:${System.getProperty('server.port', '8080')}/${appName}"
+oauth {
+    providers {
+        fitbit {
+            api = com.github.jwickard.cloudbitgrails.FitBitApi
+            key = System.getenv('FITBIT_OAUTH_KEY')
+            secret = System.getenv('FITBIT_OAUTH_SECRET')
+            successUri = '/oauth/fitbit/success'
+            failureUri = '/oauth/fitbit/failure'
+            callback = "${baseURL}/oauth/fitbit/callback"
+        }
+    }
+}
+
+
+// Added by the Spring Security Core plugin:
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.github.jwickard.cloudbitgrails.User'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.github.jwickard.cloudbitgrails.UserRole'
+grails.plugin.springsecurity.authority.className = 'com.github.jwickard.cloudbitgrails.Role'
+grails.plugin.springsecurity.securityConfigType = "InterceptUrlMap"
+grails.plugin.springsecurity.interceptUrlMap = [
+        '/':                ['permitAll'],
+        '/index':           ['permitAll'],
+        '/index.gsp':       ['permitAll'],
+        '/**/js/**':        ['permitAll'],
+        '/**/css/**':       ['permitAll'],
+        '/**/images/**':    ['permitAll'],
+        '/**/favicon.ico':  ['permitAll'],
+        '/login/**':        ['permitAll'],
+        '/logout/**':       ['permitAll'],
+        '/oauth/**':        ['permitAll'],
+        '/welcome/**':      ['permitAll']
+]
+
+
+// Added by the Spring Security OAuth plugin:
+grails.plugin.springsecurity.oauth.domainClass = 'com.github.jwickard.cloudbitgrails.OAuthId'

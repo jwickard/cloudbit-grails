@@ -47,6 +47,7 @@
                     <li class="active"><a href="#">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li><oauth:connect provider="fitbit" id="fitbit-connect-link">Login</oauth:connect></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
