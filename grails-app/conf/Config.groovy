@@ -152,9 +152,12 @@ grails.plugin.springsecurity.interceptUrlMap = [
         '/logout/**':       ['permitAll'],
         '/oauth/**':        ['permitAll'],
         '/welcome/**':      ['permitAll'],
-        '/flavor/**':       ['permitAll']
+        '/flavor/**':       ['permitAll'],
+        '/iceCreamEntry/**':['permitAll']
 ]
 
 
 // Added by the Spring Security OAuth plugin:
 grails.plugin.springsecurity.oauth.domainClass = 'com.github.jwickard.cloudbitgrails.OAuthId'
+
+grails.plugins.twitterbootstrap.fixtaglib = true
