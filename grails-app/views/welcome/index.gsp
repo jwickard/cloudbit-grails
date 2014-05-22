@@ -5,6 +5,8 @@
     <title>Welcome to Grails</title>
 </head>
 <body>
-Welcome
+<div class="jumbotron">
+    <h1>Welcome!</h1>
+</div>
 </body>
 </html>

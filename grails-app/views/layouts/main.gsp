@@ -44,9 +44,7 @@
             <a class="brand" href="#">Grails Cloud-bit</a>
             <div class="nav-collapse collapse">
                 <ul class="nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><g:link controller="welcome" action="index">Home</g:link></li>
                     <li><oauth:connect provider="fitbit" id="fitbit-connect-link">Login</oauth:connect></li>
                 </ul>
             </div><!--/.nav-collapse -->

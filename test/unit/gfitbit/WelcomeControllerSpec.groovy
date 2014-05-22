@@ -1,5 +1,6 @@
 package gfitbit
 
+import com.github.jwickard.cloudbitgrails.WelcomeController
 import grails.test.mixin.TestFor
 import spock.lang.Specification
 
