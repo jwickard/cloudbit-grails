@@ -1,4 +1,4 @@
-package gfitbit
+package com.github.jwickard.cloudbitgrails
 
 import com.github.jwickard.cloudbitgrails.WelcomeController
 import grails.test.mixin.TestFor
