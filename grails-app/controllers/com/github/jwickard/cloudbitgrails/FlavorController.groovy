@@ -15,10 +15,6 @@ class FlavorController {
         respond Flavor.list(params), model:[flavorInstanceCount: Flavor.count()]
     }
 
-    def show(Flavor flavorInstance) {
-        respond flavorInstance
-    }
-
     def create() {
         respond new Flavor(params)
     }
@@ -40,7 +36,7 @@ class FlavorController {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'flavor.label', default: 'Flavor'), flavorInstance.id])
-                redirect flavorInstance
+                redirect action: "index", method: "GET"
             }
             '*' { respond flavorInstance, [status: CREATED] }
         }
@@ -67,7 +63,7 @@ class FlavorController {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'Flavor.label', default: 'Flavor'), flavorInstance.id])
-                redirect flavorInstance
+                redirect action: "index", method: "GET"
             }
             '*'{ respond flavorInstance, [status: OK] }
         }
