@@ -67,8 +67,8 @@ grails.project.dependency.resolution = {
         compile ':twitter-bootstrap:3.1.1.2'
 
         //cloudage
-        compile ":heroku:1.0.1"
-        compile ":cloud-support:1.0.11"
+//        compile ":heroku:1.0.1"
+//        compile ":cloud-support:1.0.11"
 
 
         // plugins needed at runtime but not for compilation
