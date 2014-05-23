@@ -120,7 +120,9 @@ log4j = {
            'net.sf.ehcache.hibernate'
 }
 
-def baseURL = grails.serverURL ?: "http://localhost:${System.getProperty('server.port', '8080')}/${appName}"
+
+def baseURL = grails.serverURL ?: "http://cloudbit-grails.herokuapp.com/${appName}"
+
 oauth {
     providers {
         fitbit {
@@ -131,6 +133,10 @@ oauth {
             failureUri = '/oauth/fitbit/failure'
             callback = "${baseURL}/oauth/fitbit/callback"
         }
+    }
+
+    registration {
+        roleNames = ['ROLE_USER']
     }
 }
 
@@ -153,7 +159,8 @@ grails.plugin.springsecurity.interceptUrlMap = [
         '/oauth/**':        ['permitAll'],
         '/welcome/**':      ['permitAll'],
         '/flavor/**':       ['permitAll'],
-        '/iceCreamEntry/**':['permitAll']
+        '/iceCreamEntry/**':['permitAll'],
+        '/dbconsole/**':    ['permitAll']
 ]
 
 
