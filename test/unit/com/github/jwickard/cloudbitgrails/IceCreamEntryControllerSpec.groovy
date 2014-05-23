@@ -53,25 +53,10 @@ class IceCreamEntryControllerSpec extends Specification {
             controller.save(iceCreamEntry)
 
         then:"A redirect is issued to the show action"
-            response.redirectedUrl == '/iceCreamEntry/show/1'
+            response.redirectedUrl == '/iceCreamEntry/index'
             controller.flash.message != null
             IceCreamEntry.count() == 1
-    }
 
-    void "Test that the show action returns the correct model"() {
-        when:"The show action is executed with a null domain"
-            controller.show(null)
-
-        then:"A 404 error is returned"
-            response.status == 404
-
-        when:"A domain instance is passed to the show action"
-            populateValidParams(params)
-            def iceCreamEntry = new IceCreamEntry(params)
-            controller.show(iceCreamEntry)
-
-        then:"A model is populated containing the domain instance"
-            model.iceCreamEntryInstance == iceCreamEntry
     }
 
     void "Test that the edit action returns the correct model"() {

@@ -1,12 +1,17 @@
 package com.github.jwickard.cloudbitgrails
 
-
+import grails.plugin.springsecurity.oauth.OAuthToken
+import org.scribe.model.Token
+import org.springframework.security.core.context.SecurityContextHolder
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
 class IceCreamEntryController {
+
+    def fitBitApiService
+    def oauthService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
@@ -21,6 +26,9 @@ class IceCreamEntryController {
 
     @Transactional
     def save(IceCreamEntry iceCreamEntryInstance) {
+
+        Token fitbitAccessToken = session[oauthService.findSessionKeyForAccessToken('fitbit')]
+
         if (iceCreamEntryInstance == null) {
             notFound()
             return
@@ -32,6 +40,8 @@ class IceCreamEntryController {
         }
 
         iceCreamEntryInstance.save flush:true
+
+        fitBitApiService.logIceCreamEntry(fitbitAccessToken, iceCreamEntryInstance)
 
         request.withFormat {
             form multipartForm {

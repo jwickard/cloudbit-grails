@@ -30,7 +30,7 @@ class FlavorControllerSpec extends Specification {
             controller.create()
 
         then:"The model is correctly created"
-            model.flavorInstance!= null
+            model.flavor != null
     }
 
     void "Test the save action correctly persists an instance"() {
@@ -42,7 +42,7 @@ class FlavorControllerSpec extends Specification {
             controller.save(flavor)
 
         then:"The create view is rendered again with the correct model"
-            model.flavorInstance!= null
+            model.flavor != null
             view == 'create'
 
         when:"The save action is executed with a valid instance"
@@ -53,25 +53,9 @@ class FlavorControllerSpec extends Specification {
             controller.save(flavor)
 
         then:"A redirect is issued to the show action"
-            response.redirectedUrl == '/flavor/show/1'
+            response.redirectedUrl == '/flavor/index'
             controller.flash.message != null
             Flavor.count() == 1
-    }
-
-    void "Test that the show action returns the correct model"() {
-        when:"The show action is executed with a null domain"
-            controller.show(null)
-
-        then:"A 404 error is returned"
-            response.status == 404
-
-        when:"A domain instance is passed to the show action"
-            populateValidParams(params)
-            def flavor = new Flavor(params)
-            controller.show(flavor)
-
-        then:"A model is populated containing the domain instance"
-            model.flavorInstance == flavor
     }
 
     void "Test that the edit action returns the correct model"() {
@@ -87,7 +71,7 @@ class FlavorControllerSpec extends Specification {
             controller.edit(flavor)
 
         then:"A model is populated containing the domain instance"
-            model.flavorInstance == flavor
+            model.flavor == flavor
     }
 
     void "Test the update action performs an update on a valid domain instance"() {
