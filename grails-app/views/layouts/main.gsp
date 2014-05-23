@@ -6,13 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Le styles -->
-    <link rel="stylesheet" href="${resource(dir: 'css', file: 'bootstrap.min.css')}" type="text/css">
-    <style>
-    body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-    }
-    </style>
-    <link rel="stylesheet" href="${resource(dir: 'css', file: 'bootstrap-responsive.min.css')}" type="text/css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -32,27 +26,39 @@
 </head>
 
 <body>
-
-<div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-        <div class="container">
-            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="brand" href="#">Grails Cloud-bit</a>
-            <div class="nav-collapse collapse">
-                <ul class="nav">
-                    <li><g:link controller="welcome" action="index">Home</g:link></li>
+            <a class="navbar-brand" href="#">Grails Cloud-Bit</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><g:link controller="welcome" action="index">Home</g:link></li>
+                <sec:ifNotLoggedIn>
+                    <li><oauth:connect provider="fitbit" id="fitbit-connect-link">Login</oauth:connect></li>
+                </sec:ifNotLoggedIn>
+                <sec:ifLoggedIn>
                     <li><g:link controller="iceCreamEntry" action="index"><g:message code="icecream.nav.link.name" /></g:link></li>
                     <li><g:link controller="flavor" action="index"><g:message code="flavor.nav.link.name" /></g:link></li>
-                    <li><oauth:connect provider="fitbit" id="fitbit-connect-link">Login</oauth:connect></li>
+                </sec:ifLoggedIn>
+            </ul>
+            <sec:ifLoggedIn>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><li class="pull-right"><a href="#">Welcome: <sec:username/></a></li></li>
                 </ul>
-            </div><!--/.nav-collapse -->
-        </div>
-    </div>
-</div>
+            </sec:ifLoggedIn>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
 
 <div class="container">
 
