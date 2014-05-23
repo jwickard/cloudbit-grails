@@ -27,7 +27,7 @@
 				<g:each in="${iceCreamEntryInstanceList}" status="i" var="iceCreamEntryInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${iceCreamEntryInstance.id}">${fieldValue(bean: iceCreamEntryInstance, field: "flavor.name")}</g:link></td>
+						<td><g:link action="edit" id="${iceCreamEntryInstance.id}">${fieldValue(bean: iceCreamEntryInstance, field: "flavor.name")}</g:link></td>
 					
 						<td>${fieldValue(bean: iceCreamEntryInstance, field: "scoops")}</td>
 					
@@ -35,10 +35,18 @@
 				</g:each>
 				</tbody>
 			</table>
+            <div>
+                <g:link class="btn btn-primary" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link>
+            </div>
 			<div class="pagination">
 				<g:paginate total="${iceCreamEntryInstanceCount ?: 0}" />
 			</div>
-            <div><g:link class="btn btn-primary" action="create">Create Entry</g:link></div>
+
+            <div class="well">
+                <p>Ice Cream Entries created on this screen are pushed to FitBit via the FitBit JSON API.  You can view your log entries at: <a target="_blank" href="https://www.fitbit.com/foods/log">https://www.fitbit.com/foods/log</a></p>
+
+                <p>Ice Cream is logged under 'Anytime' under Logged Foods</p>
+            </div>
 		</div>
 	</body>
 </html>

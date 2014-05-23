@@ -7,6 +7,7 @@
 <body>
 <div class="jumbotron">
     <h1>Welcome!</h1>
+    <p>This is schmitty.</p>
 </div>
 </body>
 </html>

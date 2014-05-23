@@ -46,6 +46,7 @@
                 <ul class="nav">
                     <li><g:link controller="welcome" action="index">Home</g:link></li>
                     <li><g:link controller="iceCreamEntry" action="index"><g:message code="icecream.nav.link.name" /></g:link></li>
+                    <li><g:link controller="flavor" action="index"><g:message code="flavor.nav.link.name" /></g:link></li>
                     <li><oauth:connect provider="fitbit" id="fitbit-connect-link">Login</oauth:connect></li>
                 </ul>
             </div><!--/.nav-collapse -->
