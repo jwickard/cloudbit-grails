@@ -121,7 +121,7 @@ log4j = {
 }
 
 
-def baseURL = grails.serverURL ?: "http://cloudbit-grails.herokuapp.com/${appName}"
+def baseURL = grails.serverURL ?: "http://cloudbit-grails.herokuapp.com"
 
 oauth {
     providers {
@@ -159,8 +159,7 @@ grails.plugin.springsecurity.interceptUrlMap = [
         '/oauth/**':        ['permitAll'],
         '/welcome/**':      ['permitAll'],
         '/flavor/**':       ['permitAll'],
-        '/iceCreamEntry/**':['permitAll'],
-        '/dbconsole/**':    ['permitAll']
+        '/iceCreamEntry/**':['permitAll']
 ]
 
 
