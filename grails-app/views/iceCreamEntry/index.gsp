@@ -45,7 +45,9 @@
             <div class="well">
                 <p>Ice Cream Entries created on this screen are pushed to FitBit via the FitBit JSON API.  You can view your log entries at: <a target="_blank" href="https://www.fitbit.com/foods/log">https://www.fitbit.com/foods/log</a></p>
 
-                <p>Ice Cream is logged under 'Anytime' under Logged Foods</p>
+                <p>Ice Cream is logged under 'Anytime' under Logged Foods:</p>
+
+                <p><a target="_blank" href="https://www.fitbit.com/foods/log"><g:img dir="images" file="foodlog.png" /></a></p>
             </div>
 		</div>
 	</body>

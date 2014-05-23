@@ -6,6 +6,7 @@
 </head>
 <body>
 <div class="jumbotron">
+    <sec:ifNotLoggedIn>
     <h1>Welcome!</h1>
     <p>This is Schmitty: <g:img dir="images" file="schmitty.png" style="border: 1px solid black;" /></p>
     <p>Schmitty loves ice cream. Schmitty likes to keep a log of all the ice cream he eats, using this grails application.</p>
@@ -21,6 +22,13 @@
 <h4>password: fitbit</h4></p>
 
     <p><oauth:connect provider="fitbit" id="fitbit-connect-link" class="btn btn-primary btn-lg">Help Schmitty Log Some Ice Cream!</oauth:connect></p>
+    </sec:ifNotLoggedIn>
+
+    <sec:ifLoggedIn>
+        <h1>Welcome Back!</h1>
+        <p>Now that you've logged in, you can start logging ice cream for Schmitty!</p>
+        <p>Click the 'Ice Cream Log' link at the top of the page to get started!</p>
+    </sec:ifLoggedIn>
 </div>
 </body>
 </html>
