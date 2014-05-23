@@ -16,7 +16,9 @@
        ice cream he eats, the application also uses the Fit Bit JSON REST API to post his activity to his Fit Bit profile!
     </p>
 
-    <p><h3>Login to Schmittys account with: jwickard+schmidt@gmail.com : fitbit</h3></p>
+    <p><h3>Login to Schmittys account with:</h3>
+<h4>user: jwickard+schmidt@gmail.com</h4>
+<h4>password: fitbit</h4></p>
 
     <p><oauth:connect provider="fitbit" id="fitbit-connect-link" class="btn btn-primary btn-lg">Help Schmitty Log Some Ice Cream!</oauth:connect></p>
 </div>
