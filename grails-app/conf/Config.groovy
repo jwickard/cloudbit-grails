@@ -167,5 +167,6 @@ grails.plugin.springsecurity.interceptUrlMap = [
 grails.plugin.springsecurity.oauth.domainClass = 'com.github.jwickard.cloudbitgrails.OAuthId'
 grails.plugins.springsecurity.successHandler.alwaysUseDefault = true
 grails.plugins.springsecurity.successHandler.defaultTargetUrl = '/welcome/index'
+grails.plugins.springsecurity.secureChannel.useHeaderCheckChannelSecurity = true
 
 grails.plugins.twitterbootstrap.fixtaglib = true
