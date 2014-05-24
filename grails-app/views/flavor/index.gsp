@@ -13,7 +13,7 @@
 			<g:if test="${flash.message}">
 				<div class="message" role="status">${flash.message}</div>
 			</g:if>
-			<table class="table table-bordered">
+			<table class="table table-bordered table-striped">
 			<thead>
 					<tr>
 					
@@ -23,7 +23,7 @@
 				</thead>
 				<tbody>
 				<g:each in="${flavorInstanceList}" status="i" var="flavorInstance">
-					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+					<tr>
 					
 						<td><g:link action="edit" id="${flavorInstance.id}">${fieldValue(bean: flavorInstance, field: "name")}</g:link></td>
 					
