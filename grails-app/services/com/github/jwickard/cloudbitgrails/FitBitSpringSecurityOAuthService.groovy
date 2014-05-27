@@ -17,6 +17,10 @@ class FitBitSpringSecurityOAuthService {
         def response = oauthService.getFitBitResource(accessToken, 'https://api.fitbit.com/1/user/-/profile.json')
         def user
         try {
+
+            //we are going to push profile data to our integration core
+            rabbitSend 'fit-bit-profile-synch', response.body
+
             user = JSON.parse(response.body).user
         } catch (Exception e) {
             log.error "Error parsing response from Twitter. Response:\n${response.body}"

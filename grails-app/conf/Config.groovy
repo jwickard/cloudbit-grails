@@ -120,6 +120,23 @@ log4j = {
            'net.sf.ehcache.hibernate'
 }
 
+def amqpurl = System.getenv('CLOUDAMQP_URL').substring(7)
+
+rabbitmq {
+    connectionfactory {
+        username = amqpurl.substring(0, amqpurl.indexOf(':'))
+        password = amqpurl.substring(amqpurl.indexOf(':')+1, amqpurl.indexOf('@'))
+        hostname = amqpurl.substring(amqpurl.indexOf('@')+1, amqpurl.lastIndexOf('/'))
+        virtualHost = amqpurl.substring(amqpurl.lastIndexOf('/')+1)
+    }
+
+    queues = {
+        exchange name: 'fit-bit-profile-synch-exchange', type: topic, durable: false, {
+            profileSynch  durable: true, binding: 'fit-bit-profile-synch'
+        }
+    }
+}
+
 
 def baseURL = grails.serverURL ?: "http://cloudbit-grails.herokuapp.com"
 

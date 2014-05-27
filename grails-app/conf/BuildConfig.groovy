@@ -65,6 +65,7 @@ grails.project.dependency.resolution = {
         compile ':spring-security-oauth:2.0.2'
         compile ':spring-security-core:2.0-RC2'
         compile ':twitter-bootstrap:3.1.1.2'
+        compile ":rabbitmq:1.0.0"
 
         //cloudage
         compile ":heroku:1.0.1"

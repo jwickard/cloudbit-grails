@@ -5,4 +5,6 @@ beans = {
     fitbitSpringSecurityOAuthService(FitBitSpringSecurityOAuthService){
         oauthService = ref("oauthService")
     }
+
+    profileQueue(org.springframework.amqp.core.Queue, 'fit-bit-profile-synch')
 }
